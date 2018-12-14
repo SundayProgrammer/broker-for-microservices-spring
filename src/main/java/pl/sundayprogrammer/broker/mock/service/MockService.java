@@ -7,12 +7,12 @@ import java.util.UUID;
 
 public interface MockService {
 
-    User GetUserById(Long id);
-    User GetUserByUuid(UUID id);
-    User GetUserByName(String name);
-    User GetUserBySocialSecurityNumber(String socialNumber);
-    List<User> GetUsersByGroup(String group);
-    List<User> GetUsersInCity(String city);
-    boolean AddUser(User user);
-    boolean UpdateUser(User user);
+    User getUserById(Long id);
+    User getUserByUuid(UUID id);
+    User getUserByName(String name);
+    User getUserBySocialSecurityNumber(String socialNumber);
+    List<User> getUsersByGroup(String group);
+    List<User> getUsersInCity(String city);
+    boolean addUser(User user);
+    boolean updateUser(User user);
 }

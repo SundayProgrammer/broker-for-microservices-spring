@@ -11,7 +11,7 @@ import java.util.UUID;
 public class UserService implements MockService {
 
     @Override
-    public User GetUserById(Long id) {
+    public User getUserById(Long id) {
 
         for (Map.Entry<Long, User> entry : MockDB.db.entrySet()) {
             Long userId = entry.getKey();
@@ -25,7 +25,7 @@ public class UserService implements MockService {
     }
 
     @Override
-    public User GetUserByUuid(UUID id) {
+    public User getUserByUuid(UUID id) {
 
         for (Map.Entry<Long, User> entry : MockDB.db.entrySet()) {
             User user = entry.getValue();
@@ -37,7 +37,7 @@ public class UserService implements MockService {
     }
 
     @Override
-    public User GetUserByName(String name) {
+    public User getUserByName(String name) {
 
         for (Map.Entry<Long, User> entry : MockDB.db.entrySet()) {
             User user = entry.getValue();
@@ -49,7 +49,7 @@ public class UserService implements MockService {
     }
 
     @Override
-    public User GetUserBySocialSecurityNumber(String socialNumber) {
+    public User getUserBySocialSecurityNumber(String socialNumber) {
 
         for (Map.Entry<Long, User> entry : MockDB.db.entrySet()) {
             User user = entry.getValue();
@@ -61,7 +61,7 @@ public class UserService implements MockService {
     }
 
     @Override
-    public List<User> GetUsersByGroup(String group) {
+    public List<User> getUsersByGroup(String group) {
 
         ArrayList<User> users = new ArrayList<>();
         for (Map.Entry<Long, User> entry : MockDB.db.entrySet()) {
@@ -74,7 +74,7 @@ public class UserService implements MockService {
     }
 
     @Override
-    public List<User> GetUsersInCity(String city) {
+    public List<User> getUsersInCity(String city) {
 
         ArrayList<User> users = new ArrayList<>();
         for (Map.Entry<Long, User> entry : MockDB.db.entrySet()) {
@@ -87,7 +87,7 @@ public class UserService implements MockService {
     }
 
     @Override
-    public boolean AddUser(User user) {
+    public boolean addUser(User user) {
 
         if (!MockDB.db.containsKey(user.getId())) {
             MockDB.db.put(user.getId(), user);
@@ -97,7 +97,7 @@ public class UserService implements MockService {
     }
 
     @Override
-    public boolean UpdateUser(User user) {
+    public boolean updateUser(User user) {
         if (MockDB.db.containsKey(user.getId())) {
             MockDB.db.put(user.getId(), user);
             return true;
