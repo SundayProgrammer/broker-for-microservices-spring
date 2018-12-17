@@ -1,5 +1,6 @@
 package pl.sundayprogrammer.broker.mock.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import pl.sundayprogrammer.broker.mock.db.MockDB;
 import pl.sundayprogrammer.broker.mock.model.User;
 

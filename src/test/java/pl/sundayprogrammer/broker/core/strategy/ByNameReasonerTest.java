@@ -1,10 +1,9 @@
 package pl.sundayprogrammer.broker.core.strategy;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Value;
 import pl.sundayprogrammer.broker.mock.model.User;
-import pl.sundayprogrammer.broker.mock.service.MockService;
 import pl.sundayprogrammer.broker.mock.service.UserService;
 
 import java.lang.reflect.InvocationTargetException;
@@ -14,10 +13,14 @@ import java.util.List;
 
 public class ByNameReasonerTest {
 
-    @Value("${services.count}")
     private static Integer MOCK_DB_COUNT;
 
-    private void userById(MockService service, Method reasonedMethod) throws InvocationTargetException, IllegalAccessException {
+    @Before
+    public void init() {
+        this.MOCK_DB_COUNT = 100;
+    }
+
+    private void userById(UserService service, Method reasonedMethod) throws InvocationTargetException, IllegalAccessException {
 
         for (Long i = 0L; i < MOCK_DB_COUNT; ++i) {
 
