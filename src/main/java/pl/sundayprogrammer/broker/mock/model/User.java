@@ -7,6 +7,7 @@ import org.apache.commons.lang3.RandomUtils;
 import org.joda.time.format.DateTimeFormat;
 
 import javax.persistence.Entity;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -38,6 +39,10 @@ public class User {
         city = RandomStringUtils.randomNumeric(5);
         birthday = DateTimeFormat.forPattern("yyyy-MM-dd").parseDateTime("2016-01-01").plusDays(RandomUtils.nextInt(0, 3000)).toDate();
         password = RandomStringUtils.randomAscii(4);
+        /*
+            category jest nullem. Inicjalizujemy ArrayList
+         */
+        category = new ArrayList<>();
         if (RandomUtils.nextDouble(0, 1) < 0.1) {
             category.add("worker");
         }
