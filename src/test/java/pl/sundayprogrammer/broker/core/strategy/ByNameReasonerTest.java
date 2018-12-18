@@ -25,8 +25,12 @@ public class ByNameReasonerTest {
         for (Long i = 0L; i < MOCK_DB_COUNT; ++i) {
 
             User originalUser = service.getUserById(i);
-            List<String> args = Arrays.asList(i.toString());
-            User reasonedUser = (User) reasonedMethod.invoke(service, args);
+            User reasonedUser = (User) reasonedMethod.invoke(service, i);
+            /*
+                Tu jest method.invoke(Object, Object ... )
+                Pierwszy argument to instancja na rzecz której wywołujemy metodę "method"
+                Drugi argument to lista dowolnych obiektów/prymitywów - typy muszą się zgadzać.
+             */
 
             if (originalUser != reasonedUser) {
                 Assert.fail("userById - doesn't work");
